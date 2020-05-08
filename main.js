@@ -19,10 +19,10 @@ var coffees = [
 ];
 
 
-var tbody = document.querySelector('#coffees');
+var divCoffee = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-var nameSelection = document.querySelector('#name-selection');
+var nameInput = document.querySelector('#name-input');
 
 // Changes the roast if the user selects a different roasts, then updates the HTML table
 function changeRoast() {
@@ -32,21 +32,30 @@ function changeRoast() {
 
 // Changes the coffee live as the user types. Will essentially grab the value inputed as the user types and runs updateCoffes() every letter
 function autofillCoffee() {
-    nameSelection = document.querySelector('#name-selection');
+    nameInput = document.querySelector('#name-input');
     updateCoffees();
 }
 
 //building coffee table object html
 // took off ID displays
+// function renderCoffee(coffee) {
+//     var html = '<tr class="coffee">';
+//     // html += '<td>' + coffee.id + '</td>';
+//     html += '<td>' + coffee.name + '</td>';
+//     html += '<td>' + coffee.roast + '</td>';
+//     html += '</tr>';
+//
+//     return html;
+// }
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var html = '<div class="coffee">';
+    html += '<h2>' + coffee.name + '</h2>';
+    html += '<p>' + coffee.roast + '</p>';
+    html += '</div>';
 
     return html;
 }
+
 // looping plural coffees array -- starting from end counting back?
 function renderCoffees(coffees) {
     var html = '';
@@ -64,7 +73,7 @@ function renderCoffees(coffees) {
 function updateCoffees() {
     // e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
-    var selectedName = nameSelection.value;
+    var selectedName = nameInput.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast || "all" === selectedRoast)  {
@@ -77,11 +86,11 @@ function updateCoffees() {
         // console.log(coffee.name, coffee.roast);
 
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    divCoffee.innerHTML = renderCoffees(filteredCoffees);
 }
 
 //plural
-tbody.innerHTML = renderCoffees(coffees);
+divCoffee.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 

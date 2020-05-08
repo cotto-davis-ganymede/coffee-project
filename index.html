@@ -6,41 +6,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Coffee!</h1>
 
-<form>
-    <label for="roast-selection"></label>
-    <select id="roast-selection" onchange="changeRoast()">
-        <option selected>all</option>
-        <option>light</option>
-        <option>medium</option>
-        <option>dark</option>
-    </select>
+<div class="wrapper">
+    <header>
+        <h1>Coffee!</h1>
+        <hr>
+    </header>
 
-    <!--        Add search by coffee name to form-->
+    <section>
+        <form>
+            <label for="roast-selection">Roast</label>
+            <select id="roast-selection" onchange="changeRoast()">
+                <option selected>all</option>
+                <option>light</option>
+                <option>medium</option>
+                <option>dark</option>
+            </select>
 
-    <label for="name-selection"></label>
-    <input id="name-selection" type="text" name="name-selection" oninput="autofillCoffee()">
-    <button id="submit" type="button">Submit</button>
-<!--    Change submit button to just a button-->
+            <!--        Add search by coffee name to form-->
+
+            <label for="name-input">Coffee Name</label>
+            <input id="name-input" type="text" name="name-input" oninput="autofillCoffee()">
+            <button id="submit" type="button">Submit</button>
+        <!--    Change submit button to just a button-->
 
 
 
-</form>
+        </form>
 
-<!--    Bonus: add second form eventually -->
+    <!--    Bonus: add second form eventually -->
+    </section>
 
-<table>
-    <thead>
-    <tr>
-        <!--  <th>ID</th>-->
-        <th>NAME</th>
-        <th>ROAST</th>
-    </tr>
-    </thead>
-    <tbody id="coffees"></tbody>
-</table>
+    <main>
+        <div id="coffees"></div>
+    </main>
 
+</div>
 <script src="main.js"></script>
 </body>
 </html>

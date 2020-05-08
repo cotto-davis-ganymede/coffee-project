@@ -1,9 +1,66 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    margin: 15px 0;*/
+/*}*/
+
+/*td, th {*/
+/*    border: 1px solid black;*/
+/*    padding: 5px 10px;*/
+/*}*/
+
+* {
+    box-sizing: border-box;
 }
 
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
+body {
+    /*background: mediumpurple;*/
+    /*color: white;*/
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: /* use section names to define grid areas below */
+            "header header"
+            "output section";
+    grid-gap: 0.5em;
+    /*height: 100vh;*/
+}
+header {
+    grid-area: header;
+    min-height: 10vh;
+    text-align: center;
+}
+hr {
+    width: 95%;
+    color: whitesmoke;
+}
+main {
+    grid-area: output;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+div #coffee {
+    display: flex;
+    justify-content: flex-start;
+}
+section {
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*margin: 0;*/
+}
+
+header,
+div #coffee,
+section {
+    background: white;
+    /*font-size: x-small;*/
+    padding: 5px;
 }
