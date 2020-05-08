@@ -60,6 +60,7 @@ function renderCoffees(coffees) {
 // e is an event
 // possible live function
 // not truly submitting form
+// took e off for changeRoast & autofill functions to work
 function updateCoffees() {
     // e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
