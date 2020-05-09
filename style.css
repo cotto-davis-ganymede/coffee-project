@@ -22,11 +22,11 @@ body {
 .wrapper {
     /*inline grid makes it smaller*/
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr auto;
     grid-template-areas: /* use section names to define grid areas below */
-            "header header"
-            "output section";
+            "header header header header"
+            "output output section section";
     grid-gap: 0.5em;
     /*height: 100vh;*/
 
@@ -40,10 +40,12 @@ hr {
     width: 95%;
     color: whitesmoke;
 }
+/*main is output*/
 main {
     grid-area: output;
     display: flex;
-
+    /*grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));*/
+    /*flex: 10 10;*/
     /*flex-wrap: wrap;*/
     /*width: 50%;*/
 }
@@ -55,15 +57,42 @@ main div {
     flex-wrap: wrap;
 }
 
+/*main div div {*/
+/*    display: flex*/
+/*}*/
+
 div #coffee {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    /*width: 100%;*/
+    grid-column: span 1;
+    /*grid-area: 2 / 1 / 2 / 2;*/
+    /*flex-flow: column wrap;*/
+    /*flex-wrap: wrap;*/
+    /*flex-grow: 1;*/
+    /*padding: 500px;*/
+    /*width: 50%;*/
     /*padding-right: 5em;*/
     /*margin-right: 5em;*/
     /*flex-direction: column;*/
 }
+
+.c-name {
+    display: flex;
+    justify-content: flex-start;
+    /*padding-right: 2em;*/
+
+}
+.c-roast {
+    display: flex;
+    padding-left: .5em;
+    align-items: flex-end;
+    padding-right: 2em;
+    color: lightgray;
+    padding-bottom: 6px;
+    /*justify-content: flex-end;*/
+}
+
+
 section {
     grid-area: section;
     display: flex;
