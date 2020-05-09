@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,8 +14,11 @@
     </header>
 
     <section>
-        <form>
+        <form class="card">
+
+            <p>
             <label for="roast-selection">Roast</label>
+            </p>
             <select id="roast-selection" onchange="changeRoast()">
                 <option selected>all</option>
                 <option>light</option>
@@ -24,10 +27,9 @@
             </select>
 
             <!--        Add search by coffee name to form-->
-
-            <label for="name-input">Coffee Name</label>
+            <p><label for="name-input">Coffee Name</label></p>
             <input id="name-input" type="text" name="name-input" oninput="autofillCoffee()">
-            <button id="submit" type="button">Submit</button>
+<!--            <button id="submit" type="button">Submit</button>-->
         <!--    Change submit button to just a button-->
 
 
