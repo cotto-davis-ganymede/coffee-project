@@ -51,8 +51,10 @@ main {
 }
 main div {
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
     justify-content: flex-start;
+    /*align-content: flex-start;*/
+    align-items: baseline;
     /*justify-content: space-between;*/
     flex-wrap: wrap;
 }
@@ -64,13 +66,14 @@ main div {
 div #coffee {
     display: flex;
     justify-content: space-between;
-    grid-column: span 1;
+    /*width: 50%;*/
+    /*flex-basis: 25%;*/
+    /*grid-column: span 1;*/
     /*grid-area: 2 / 1 / 2 / 2;*/
     /*flex-flow: column wrap;*/
     /*flex-wrap: wrap;*/
     /*flex-grow: 1;*/
     /*padding: 500px;*/
-    /*width: 50%;*/
     /*padding-right: 5em;*/
     /*margin-right: 5em;*/
     /*flex-direction: column;*/
