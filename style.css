@@ -36,8 +36,11 @@ header {
     min-height: 10vh;
     text-align: center;
 }
+.card h1 {
+    text-align: center;
+}
 hr {
-    width: 95%;
+    width: 100%;
     color: whitesmoke;
 }
 /*main is output*/
