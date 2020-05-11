@@ -24,6 +24,9 @@ var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 var nameInput = document.querySelector('#name-input');
 
+var roastSelectionTwo = document.querySelector('#roast-selection-two');
+var nameInputTwo = document.querySelector('#name-input-two');
+
 // Changes the roast if the user selects a different roasts, then updates the HTML table
 function changeRoast() {
     roastSelection = document.querySelector('#roast-selection');
@@ -36,17 +39,7 @@ function autofillCoffee() {
     updateCoffees();
 }
 
-//building coffee table object html
-// took off ID displays
-// function renderCoffee(coffee) {
-//     var html = '<tr class="coffee">';
-//     // html += '<td>' + coffee.id + '</td>';
-//     html += '<td>' + coffee.name + '</td>';
-//     html += '<td>' + coffee.roast + '</td>';
-//     html += '</tr>';
-//
-//     return html;
-// }
+
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
     html += '<h2 class="c-name">' + coffee.name + '</h2>';
@@ -56,18 +49,16 @@ function renderCoffee(coffee) {
     return html;
 }
 
-// looping plural coffees array -- starting from end counting back?
+
 function renderCoffees(coffees) {
     var html = '';
-    // for(var i = coffees.length - 1; i >= 0; i--)
     for(var i = 0; i <= coffees.length - 1; i++){
         html += renderCoffee(coffees[i]);
     }
     return html;
 }
-// without this form it no work -- updating table with form inputs
+
 // e is an event
-// possible live function
 // not truly submitting form
 // took e off for changeRoast & autofill functions to work
 function updateCoffees() {
@@ -80,6 +71,25 @@ function updateCoffees() {
             if (coffee.name.toLowerCase().includes(selectedName.toLowerCase()))  {
                 filteredCoffees.push(coffee);
             } else if ("" === selectedName) {
+                filteredCoffees.push(coffee);
+            }
+        }
+        // console.log(coffee.name, coffee.roast);
+
+    });
+    divCoffee.innerHTML = renderCoffees(filteredCoffees);
+}
+
+function updateCoffeesTwo(e) {
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var selectedRoastTwo = roastSelectionTwo.value;
+    var selectedNameTwo = nameInputTwo.value;
+    var filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        if (coffee.roast === selectedRoastTwo || "all" === selectedRoastTwo)  {
+            if (coffee.name.toLowerCase().includes(selectedNameTwo.toLowerCase()))  {
+                filteredCoffees.push(coffee);
+            } else if ("" === selectedNameTwo) {
                 filteredCoffees.push(coffee);
             }
         }
